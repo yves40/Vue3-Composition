@@ -1,12 +1,56 @@
 <template>
+  <p>Multiple root components</p>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <h1>Learning Vue3 composition</h1>
+    <h3>Version is {{ Version }}</h3>
+    <p>Capacity: {{ capacity }}</p>
+    <p>Developers are : {{ devnumber }}</p>
+    <ul>
+      <li v-for="(name, index) in developers" :key="index">
+        {{ name }}
+      </li>
+    </ul>
+    <button @click="increaseCapacity">Increase</button>
+    <calculatorRef/>
+    <calculatorReactive/>
   </div>
 </template>
+
+<script>
+
+import { ref, computed, onMounted, onUpdated, watchEffect } from "vue"; // <-- Use this line if you're in a Vue 3 app
+import calculatorRef  from "./views/calculatorRef";
+import calculatorReactive  from "./views/calculatorReactive";
+
+export default {
+  name: 'App',
+  components: {
+    calculatorRef,
+    calculatorReactive,
+  },
+
+  setup() {
+      const count = ref(0);
+      const capacity = ref(3);
+      const Version = "App.vue 1.28, Jul 02 2020";
+      const developers = ref(["Yves", "Isabelle", "Barbilec", "Bintoul", "Ratoon", "Tono"]);
+      const devnumber = computed(() => {
+        return developers.value.length;
+      })
+      function increaseCapacity() { 
+        capacity.value++;
+      }
+      watchEffect( () => {
+      });
+      onMounted( () => { 
+        console.log('Mounted') ;
+      });      
+      onUpdated( () => { console.log('Updated: ' + capacity.value)});
+      return { capacity, increaseCapacity, Version, developers, devnumber };
+    }
+  };
+
+</script>
 
 <style>
 #app {
