@@ -18,11 +18,14 @@ import { ref } from "vue";
 export default {
   name: 'calculatorRef',
   setup() {
-    let Version = 'calculatorRef: 1.14, Jul 02 2020'
+    let Version = 'calculatorRef: 1.16, Jul 02 2020'
     let num1 = ref(0);
     let num2 = ref(0);
     let result = ref(0);
 
+    function getVersion() {
+      return Version;
+    }
     function addNumbers() {
       result.value = parseInt(num1.value) + parseInt(num2.value);
     }
@@ -32,7 +35,7 @@ export default {
       num2,
       result,
       Version,
-      addNumbers
+      addNumbers,
     }
   }
 }

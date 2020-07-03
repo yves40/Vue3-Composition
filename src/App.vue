@@ -13,6 +13,8 @@
     <button @click="increaseCapacity">Increase</button>
     <calculatorRef/>
     <calculatorReactive/>
+    <calculatorComputed/>
+    <calculatorToRefs/>
   </div>
 </template>
 
@@ -21,18 +23,22 @@
 import { ref, computed, onMounted, onUpdated, watchEffect } from "vue"; // <-- Use this line if you're in a Vue 3 app
 import calculatorRef  from "./views/calculatorRef";
 import calculatorReactive  from "./views/calculatorReactive";
+import calculatorComputed  from "./views/calculatorComputed";
+import calculatorToRefs  from "./views/calculatorToRefs";
 
 export default {
   name: 'App',
   components: {
     calculatorRef,
     calculatorReactive,
+    calculatorComputed,
+    calculatorToRefs
   },
 
   setup() {
       const count = ref(0);
       const capacity = ref(3);
-      const Version = "App.vue 1.28, Jul 02 2020";
+      const Version = "App.vue 1.31, Jul 03 2020";
       const developers = ref(["Yves", "Isabelle", "Barbilec", "Bintoul", "Ratoon", "Tono"]);
       const devnumber = computed(() => {
         return developers.value.length;
