@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div class="head">
+      <img src="./assets/logo.png" />
+    </div>
     <h1>Learning Vue3 composition</h1>
     <h3>{{ Version }}</h3>
     <calculatorRef/>
@@ -31,9 +34,6 @@ export default {
       onMounted( () => { 
         console.log('Mounted') ;
       });      
-      onUpdated( () => { 
-        console.log('Updated: ')
-      });
       return { Version };
     }
   };
@@ -48,5 +48,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.head { padding-top: 2rem;}
 
 </style>
