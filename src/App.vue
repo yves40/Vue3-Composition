@@ -5,9 +5,10 @@
       <router-link to="/about">About</router-link> |
     </div>
     <div id="nav">
-      <router-link to="/calcref">Calculator Ref</router-link><br>
-      <router-link to="/calcreactive">Calculator Reactive</router-link><br>
-      <router-link to="/calccomputed">Calculator Computed</router-link><br>
+      <!-- For params to be passed, need to set props:true in router/index.js-->
+      <router-link :to="{name: 'calcref',      params: { preset1: 12, preset2: 87}}">Calculator Ref</router-link><br>
+      <router-link :to="{name: 'calcreactive', params: { preset1: 98, preset2: 1 }}">Calculator Reactive</router-link><br>
+      <router-link :to="{name: 'calccomputed', params: { preset1: 1, preset2: 98 }}">Calculator Computed</router-link><br>
     </div>
     <router-view/>
   </div>

@@ -27,7 +27,7 @@ export default {
 
     console.log(JSON.stringify(props))
 
-    let Version = 'calculatorRef: 1.40, Jul 16 2020'
+    let Version = 'calculatorRef: 1.43, Jul 20 2020'
     let Header = props.msg;
     let num1 ;
     let num2;

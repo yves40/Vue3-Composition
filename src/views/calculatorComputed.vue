@@ -17,13 +17,30 @@ import { reactive, computed } from "vue";
 
 export default {
   name: 'calculatorComputed',
-  setup() {
-    let Version = 'calculatorComputed: 1.01, Jul 03 2020'
+  props: {
+    preset1: String,
+    preset2: String,
+  },
+  setup(props) {
+    console.log(JSON.stringify(props))
+    let Version = 'calculatorComputed: 1.04, Jul 20 2020'
     let state = reactive( {
       num1: 0,
       num2: 0,
       result: computed( () => parseInt(state.num1) + parseInt(state.num2))
     })
+    if(!isNaN(parseInt(props.preset1))) {
+       state.num1 = parseInt(props.preset1);
+    }
+    else {
+       state.num1 = 0;
+    }
+    if(!isNaN(parseInt(props.preset2))) {
+       state.num2 = parseInt(props.preset2);
+    }
+    else {
+       state.num2 = 0;
+    }
 
     return { 
       Version,
