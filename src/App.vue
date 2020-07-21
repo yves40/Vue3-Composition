@@ -9,6 +9,7 @@
       <router-link :to="{name: 'calcref',      params: { preset1: 12, preset2: 87}}">Calculator Ref</router-link><br>
       <router-link :to="{name: 'calcreactive', params: { preset1: 98, preset2: 1 }}">Calculator Reactive</router-link><br>
       <router-link :to="{name: 'calccomputed', params: { preset1: 1, preset2: 98 }}">Calculator Computed</router-link><br>
+      <router-link :to="{name: 'calctorefs',   params: { preset1: 99, preset2: 99 }}">Calculator ToRefs</router-link><br>
     </div>
     <router-view/>
   </div>
