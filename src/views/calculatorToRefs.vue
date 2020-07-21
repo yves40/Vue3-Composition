@@ -1,6 +1,7 @@
 <template>
+  <topmenu/>
   <div class="calculator">
-    <h3>{{Version}}</h3>
+    <h6>{{Version}}</h6>
     <form class="calc-form">
       <input type="text" class="field" v-model="num1"  maxlength="2"/>
       <span class="operator"> + </span>
@@ -14,6 +15,8 @@
 <script>
 
 import { reactive, computed, toRefs } from "vue";
+import topmenu from "./topmenu"
+
 
 function useCalculator(n1, n2) {
     let state = reactive( {
@@ -26,6 +29,9 @@ function useCalculator(n1, n2) {
 }
 
 export default {
+  components: {
+    topmenu
+  },
   props: {
     preset1: String,
     preset2: String,
@@ -51,7 +57,3 @@ export default {
 
 </script>
 
-<style scopped>
-  .calculator { display: flex; flex-direction: column; align-items: center;}
-  .calc-form { width: 32 rem; }
-</style>

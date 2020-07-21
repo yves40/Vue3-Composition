@@ -1,0 +1,38 @@
+.calc-form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 12em;
+  padding: 1em;
+  border: 1px;
+  border-style: solid;
+}
+.field {
+  width: 3rem;
+  color: #42b983;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.about { border: 1px;}
+
+h6 { padding: 1px; border: 1px; border-style: solid;
+margin-block-start: 1em; margin-block-end: 1em;}
