@@ -33,26 +33,14 @@ export default {
   name: 'calculatorToRefs',
   setup(props) {
     console.log(JSON.stringify(props))
-    let Version = 'calculatorToRefs: 1.22, Jul 21 2020'
+    let Version = 'calculatorToRefs: 1.24, Jul 21 2020'
     let dummy = {
       num1: 0,
       num2: 0,
     }
+    dummy.num1 = !isNaN(parseInt(props.preset1)) ? dummy.num1 = parseInt(props.preset1): 0;
+    dummy.num2 = !isNaN(parseInt(props.preset2)) ? dummy.num2 = parseInt(props.preset2): 0;
 
-    if(!isNaN(parseInt(props.preset1))) {
-       dummy.num1 = parseInt(props.preset1);
-    }
-    else {
-       dummy.num1 = 0;
-    }
-    if(!isNaN(parseInt(props.preset2))) {
-       dummy.num2 = parseInt(props.preset2);
-    }
-    else {
-       dummy.num2 = 0;
-    }
-
-    // let { num1, num2, result } = useCalculator();
     let { num1, num2, result } = useCalculator(dummy.num1, dummy.num2);
     return { 
       Version,
