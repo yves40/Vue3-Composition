@@ -2,11 +2,11 @@
   <div class="calculator">
     <h3>{{Version}}</h3>
     <form class="calc-form">
-      <input type="text" class="field" v-model="dummy.num1"  maxlength="2"/>
+      <input type="text" class="field" v-model="num1"  maxlength="2"/>
       <span class="operator"> + </span>
-      <input type="text" class="field" v-model="dummy.num2"  maxlength="2"/>
+      <input type="text" class="field" v-model="num2"  maxlength="2"/>
       <span class="operator"> = </span>
-      <span class="result">{{dummy.result}}</span>
+      <span class="result">{{result}}</span>
     </form>
   </div>
 </template>
@@ -15,12 +15,13 @@
 
 import { reactive, computed, toRefs } from "vue";
 
-function useCalculator() {
+function useCalculator(n1, n2) {
     let state = reactive( {
-      num1: 0,
-      num2: 0,
+      num1: n1,
+      num2: n2,
       result: computed( () => parseInt(state.num1) + parseInt(state.num2))
     })
+    console.log(JSON.stringify(state))
     return toRefs(state);
 }
 
@@ -32,11 +33,10 @@ export default {
   name: 'calculatorToRefs',
   setup(props) {
     console.log(JSON.stringify(props))
-    let Version = 'calculatorToRefs: 1.15, Jul 21 2020'
+    let Version = 'calculatorToRefs: 1.22, Jul 21 2020'
     let dummy = {
       num1: 0,
       num2: 0,
-      result: 0
     }
 
     if(!isNaN(parseInt(props.preset1))) {
@@ -51,14 +51,12 @@ export default {
     else {
        dummy.num2 = 0;
     }
-    dummy.result = dummy.num1 + dummy.num2;
-    console.log(JSON.stringify(dummy))
 
     // let { num1, num2, result } = useCalculator();
-    dummy = useCalculator();
+    let { num1, num2, result } = useCalculator(dummy.num1, dummy.num2);
     return { 
       Version,
-      dummy
+      num1, num2, result
     }
   }
 }
