@@ -23,7 +23,7 @@ export default {
   name: 'calculatorreactive',
   setup(props) {
     console.log(JSON.stringify(props))
-    let Version = 'calculatorReactive: 1.08, Jul 22 2020'
+    let Version = 'calculatorReactive: 1.09, Jul 22 2020'
     let state = reactive( {
       num1: 0,
       num2: 0,
@@ -42,7 +42,7 @@ export default {
     else {
        state.num2 = 0;
     }
-
+    addNumbers();
 
     function addNumbers() {
       state.result = parseInt(state.num1) + parseInt(state.num2);
