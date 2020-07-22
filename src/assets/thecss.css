@@ -21,11 +21,11 @@ font-weight: bold;
   margin-right: auto;
   width: 12em;
   padding: 1em;
-  border: 1px;
-  border-style: solid;
 }
 .field {
   width: 3rem;
+  margin: 2px;
+  text-align: center;
 }
 
 #app {
@@ -37,7 +37,7 @@ font-weight: bold;
 }
 
 #nav {
-  padding: 30px;
+  padding: 0.5em 1em 0.5em 1em;
 }
 
 #nav a {

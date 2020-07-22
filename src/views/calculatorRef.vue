@@ -13,7 +13,7 @@
 
 <script>
 
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 export default {
   props: {
@@ -52,6 +52,10 @@ export default {
     function addNumbers() {
       result.value = parseInt(num1.value) + parseInt(num2.value);
     }
+    watch( [num1, num2], ([c1, c2], [p1, p2]) => {
+        console.log('num1 : ' + c1 + ' ____ ' + p1);
+        console.log('num2 : ' + c2 + ' ____ ' + p2);
+    })
 
     return { 
       num1,
