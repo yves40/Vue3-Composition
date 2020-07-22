@@ -1,3 +1,15 @@
+#header {
+  border-bottom: 2px solid lightgray;
+  padding: 2px 0px 2px 0px;
+}
+#header h1 { font-weight: bold; font-size: 1.5em; }
+#header h2 {font-weight: normal;font-size: 1em; }
+#header h3 {font-weight: normal;font-size: 0.8em; }
+
+#appzone {padding-top: 1em;padding-bottom: 1em;margin-top: 1em;}
+
+#footer {font-size: 1em;margin-top: 1em;padding-top: 1em; border-top: 2px solid lightgray;}
+
 .calc-form {
   margin-left: auto;
   margin-right: auto;
@@ -8,7 +20,6 @@
 }
 .field {
   width: 3rem;
-  color: #42b983;
 }
 
 #app {
@@ -34,5 +45,4 @@
 
 .about { border: 1px;}
 
-h6 { padding: 1px; border: 1px; border-style: solid;
-margin-block-start: 1em; margin-block-end: 1em;}
+h6 { padding: 1em; border: 1px; border-style: solid;}

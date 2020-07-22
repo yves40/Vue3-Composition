@@ -1,4 +1,5 @@
 <template>
+    <h6>{{Version}}</h6>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -11,3 +12,15 @@
       <router-link :to="{name: 'calctorefs',   params: { preset1: 99, preset2: 99 }}">Calculator ToRefs</router-link><br>
   </div>
 </template>
+
+<script>
+
+export default {
+  setup(props, context) {
+    const Version = 'topmenu 1.01: Jul 21 2020'
+    return {
+      Version
+    }
+  }
+}
+</script>

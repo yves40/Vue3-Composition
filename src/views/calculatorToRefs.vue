@@ -1,5 +1,4 @@
 <template>
-  <topmenu/>
   <div class="calculator">
     <h6>{{Version}}</h6>
     <form class="calc-form">
@@ -15,7 +14,6 @@
 <script>
 
 import { reactive, computed, toRefs } from "vue";
-import topmenu from "./topmenu"
 
 
 function useCalculator(n1, n2) {
@@ -29,9 +27,6 @@ function useCalculator(n1, n2) {
 }
 
 export default {
-  components: {
-    topmenu
-  },
   props: {
     preset1: String,
     preset2: String,
@@ -39,7 +34,7 @@ export default {
   name: 'calculatorToRefs',
   setup(props) {
     console.log(JSON.stringify(props))
-    let Version = 'calculatorToRefs: 1.24, Jul 21 2020'
+    let Version = 'calculatorToRefs: 1.25, Jul 22 2020'
     let dummy = {
       num1: 0,
       num2: 0,

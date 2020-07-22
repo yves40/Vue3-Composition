@@ -1,5 +1,4 @@
 <template>
-<topmenu></topmenu>
   <div class="calculator">
     <h6>{{Version}}</h6>
     <h5>{{Header}}</h5>
@@ -16,12 +15,8 @@
 <script>
 
 import { ref } from "vue";
-import topmenu from "./topmenu"
 
 export default {
-  components: {
-    topmenu
-  },
   props: {
     msg: String,
     preset1: String,
@@ -32,7 +27,7 @@ export default {
 
     console.log(JSON.stringify(props))
 
-    let Version = 'calculatorRef: 1.43, Jul 20 2020'
+    let Version = 'calculatorRef: 1.44, Jul 22 2020'
     let Header = props.msg;
     let num1 ;
     let num2;

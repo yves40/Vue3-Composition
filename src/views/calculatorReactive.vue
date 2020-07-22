@@ -1,5 +1,4 @@
 <template>
-<topmenu></topmenu>
   <div class="calculator">
     <h6>{{Version}}</h6>
     <form class="calc-form">
@@ -15,12 +14,8 @@
 <script>
 
 import { reactive } from "vue";
-import topmenu from "./topmenu"
 
 export default {
-  components: {
-    topmenu
-  },
   props: {
     preset1: String,
     preset2: String,
@@ -28,7 +23,7 @@ export default {
   name: 'calculatorreactive',
   setup(props) {
     console.log(JSON.stringify(props))
-    let Version = 'calculatorReactive: 1.07, Jul 20 2020'
+    let Version = 'calculatorReactive: 1.08, Jul 22 2020'
     let state = reactive( {
       num1: 0,
       num2: 0,
