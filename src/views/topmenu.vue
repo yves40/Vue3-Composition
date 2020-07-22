@@ -1,5 +1,5 @@
 <template>
-    <h6>{{Version}}</h6>
+    <div class="moduletitle">{{Version}}</div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |

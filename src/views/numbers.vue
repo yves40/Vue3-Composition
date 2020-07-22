@@ -1,7 +1,6 @@
 <template>
   <br />
-  <h6>{{Version}}</h6>
-  <br />
+  <div class="moduletitle">{{Version}}</div>  <br />
   <div class="calc-form">
     <form>
       <input type="text" class="field" v-model="num1" maxlength="2" />

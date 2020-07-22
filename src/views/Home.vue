@@ -1,5 +1,5 @@
 <template>
-    {{Version}}
+  <div class="moduletitle">{{Version}}</div>
   <div class="home">
     <numbers/>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="calculator">
-    <h6>{{Version}}</h6>
+    <div class="moduletitle">{{Version}}</div>
     <form class="calc-form">
       <input type="text" class="field" v-model="state.num1"  maxlength="2"/>
       <span class="operator"> + </span>
