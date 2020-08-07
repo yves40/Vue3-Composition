@@ -13,7 +13,7 @@
 
 <script>
 
-import { ref, watch } from "vue";
+import { onMounted, onBeforeUnmount, ref, watch } from "vue";
 
 export default {
   props: {
@@ -22,11 +22,11 @@ export default {
     preset2: String,
   },
   name: 'calculatorRef',
-  setup(props) {
+  setup(props, context) {
+    console.log(JSON.stringify(context))
 
-    console.log(JSON.stringify(props))
 
-    let Version = 'calculatorRef: 1.44, Jul 22 2020'
+    let Version = 'calculatorRef: 1.56, Aug 03 2020 '
     let Header = props.msg;
     let num1 ;
     let num2;
@@ -46,6 +46,13 @@ export default {
 
     let result = ref(num1.value + num2.value);
 
+    onBeforeUnmount(() =>  {
+      console.log(Version + 'UnMounted');
+    })
+
+    onMounted(() =>  {
+      console.log(Version + 'Mounted');
+    })
     function getVersion() {
       return  Version;
     }
@@ -53,9 +60,9 @@ export default {
       result.value = parseInt(num1.value) + parseInt(num2.value);
     }
     watch( [num1, num2], ([c1, c2], [p1, p2]) => {
-        console.log('num1 : ' + c1 + ' ____ ' + p1);
-        console.log('num2 : ' + c2 + ' ____ ' + p2);
-    })
+      console.log('num1 : ' + c1 + ' ____ ' + p1);
+      console.log('num2 : ' + c2 + ' ____ ' + p2);
+  })
 
     return { 
       num1,
