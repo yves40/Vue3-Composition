@@ -14,6 +14,7 @@
 <script>
 
 import { onMounted, onBeforeUnmount, ref, watch } from "vue";
+import { useStore } from "vuex";
 
 export default {
   props: {
@@ -23,10 +24,12 @@ export default {
   },
   name: 'calculatorRef',
   setup(props, context) {
-    console.log(JSON.stringify(context))
+
+    const store = useStore();
+    // console.log(JSON.stringify(context))
 
 
-    let Version = 'calculatorRef: 1.56, Aug 03 2020 '
+    let Version = 'calculatorRef: 1.59, Aug 10 2020 '
     let Header = props.msg;
     let num1 ;
     let num2;
@@ -58,6 +61,7 @@ export default {
     }
     function addNumbers() {
       result.value = parseInt(num1.value) + parseInt(num2.value);
+      store.dispatch('updateResult', { num1: num1.value, num2: num2.value} );
     }
     watch( [num1, num2], ([c1, c2], [p1, p2]) => {
       console.log('num1 : ' + c1 + ' ____ ' + p1);
