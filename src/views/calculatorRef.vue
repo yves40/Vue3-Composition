@@ -2,9 +2,9 @@
   <div class="calculator">
     <div class="moduletitle">{{Version}}</div>
     <form class="calc-form">
-      <input type="text" class="field" v-model="num1" @keyup="addNumbers" maxlength="2"/>
+      <input type="text" class="field" v-model="num1" maxlength="2"/>
       <span class="operator"> + </span>
-      <input type="text" class="field" v-model="num2" @keyup="addNumbers" maxlength="2"/>
+      <input type="text" class="field" v-model="num2" maxlength="2"/>
       <span class="operator"> = </span>
       <span class="result">{{result}}</span>
     </form>
@@ -31,7 +31,7 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 1.76, Aug 11 2020 '
+    let Version = 'calculatorRef: 1.78, Aug 11 2020 '
     let Header = props.msg;
     let num1 ;
     let num2;
@@ -68,12 +68,18 @@ export default {
     function getVersion() {
       return  Version;
     }
-    function addNumbers() {
-      store.dispatch('updateResult', { num1: num1.value, num2: num2.value} );
-    }
     watch( [num1, num2], ([c1, c2], [p1, p2]) => {
-      console.log('watch handler: num1 changed to: ' + c1 + ' from ' + p1);
-      console.log('watch handler: num2 changed to: ' + c2 + ' from ' + p2);
+      let trackchange = false;
+      if(c1 !== p1) {
+        console.log('watch handler: num1 changed from: ' + p1 + ' to ' + c1);
+        trackchange = true;
+      }
+      if(c2 !== p2) {
+        console.log('watch handler: num2 changed from: ' + p2 + ' to ' + c2);
+        trackchange = true;
+      }
+      if(trackchange)
+        store.dispatch('updateResult', { num1: c1, num2: c2} );
   })
 
     return { 
@@ -83,7 +89,6 @@ export default {
       modifications,
       Version,
       Header,
-      addNumbers,
     }
   }
 }
