@@ -15,6 +15,7 @@
 
 import { onMounted, onBeforeUnmount, ref, watch } from "vue";
 import { useStore } from "vuex";
+import { Router, useRouter } from "vue-router";
 
 export default {
   props: {
@@ -26,10 +27,11 @@ export default {
   setup(props, context) {
 
     const store = useStore();
-    // console.log(JSON.stringify(context))
-
-
-    let Version = 'calculatorRef: 1.59, Aug 10 2020 '
+    const router = useRouter();
+    router.getRoutes().forEach( rt => console.info(rt.path));
+    
+    
+    let Version = 'calculatorRef: 1.68, Aug 11 2020 '
     let Header = props.msg;
     let num1 ;
     let num2;

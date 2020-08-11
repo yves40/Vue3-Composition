@@ -2,7 +2,7 @@ import Vuex from 'vuex'
 
 export default Vuex.createStore({
   state: {
-    Version: 'index:1.02, Aug 10 2020 ',
+    Version: 'store/index:1.03, Aug 11 2020 ',
     num1: 0,
     num2: 0,
     result: 0,
