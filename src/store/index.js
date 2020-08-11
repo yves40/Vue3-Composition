@@ -2,36 +2,42 @@ import Vuex from 'vuex'
 
 export default Vuex.createStore({
   state: {
-    Version: 'store/index:1.03, Aug 11 2020 ',
+    Version: 'store/index:1.11, Aug 11 2020 ',
     num1: 0,
     num2: 0,
     result: 0,
+    modifications: 0,
   },
   getters: {
-    getVersion() { return state.Version;},
-    getNum1() { return state.num1;},
-    getNum2() { return state.num2;},
-    getResult() { return sate.result;}
+    getVersion(state) { return state.Version;},
+    getNum1(state) { return state.num1;},
+    getNum2(state) { return state.num2;},
+    getResult(state) { return state.result;},
+    getModificationsNumber(state) { return state.modifications;}
   },
   mutations: {
-    setNum1(num) { 
-      state.num1 = num;
+    setNum1(state, num) { 
+      state.num1 = parseInt(num);
     },
-    setNum2(num) { 
-      state.num2 = num;
-    }
+    setNum2(state, num) { 
+      state.num2 = parseInt(num);
+    },
+    setResult(state, payload) {
+      state.num1 = parseInt(payload.num1);
+      state.num2 = parseInt(payload.num2);
+      state.result =  state.num1 + state.num2;
+      ++state.modifications;
+    },
   },
   actions: {
-    updateResult({commit, state}, payload) { 
-      console.info(state.Version + JSON.stringify(payload)) ;
+    updateResult({commit}, payload) { 
+      commit('setResult', payload);
     }, 
     updateNum1({commit, state}, payload) {
-      console.info(state.Version + 'Action num1') ;
-      commit('setNum1');
+      commit('setNum1', payload.num1);
     },
     updateNum2({commit, state}, payload) {
-      console.info(state.Version + 'Action num2') ;
-      commit('setNum2');
+      commit('setNum2', payload.num2);
     }
   },
   modules: {
