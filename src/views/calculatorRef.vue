@@ -31,7 +31,7 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.06, Aug 12 2020 '
+    let Version = 'calculatorRef: 2.08, Aug 12 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);
@@ -81,7 +81,8 @@ export default {
         }
         else {
           console.log('watch handler: change from: ' + (pkey===""? 'Nothing': pkey) + ' to ' + ckey);
-          field.value = ckey.replace(/^0+/, '');
+          //field.value = ckey.replace(/^[0\.]/, '');
+          if(ckey !== "0") field.value = ckey.replace(/^0+/, '');
           status = true;
         }
       }
