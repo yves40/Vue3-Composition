@@ -31,7 +31,7 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.04, Aug 12 2020 '
+    let Version = 'calculatorRef: 2.06, Aug 12 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);
@@ -55,7 +55,10 @@ export default {
     onBeforeUnmount(() =>  { console.log(Version + 'UnMounted');})
     onMounted(() =>  {console.log(Version + 'Mounted');})
 
+
+//-----------------------------------------------------------------------
     // Track user actions
+    //-----------------------------------------------------------------------
     watch( [num1, num2], ([c1, c2], [p1, p2]) => {
       console.log("**** " + c1 + " **** " + c2 + " **************************")
       let trackchange = check(num1, c1, p1);
@@ -77,7 +80,8 @@ export default {
           status = true;
         }
         else {
-          console.log('watch handler: change from: ' + pkey + ' to ' + ckey);
+          console.log('watch handler: change from: ' + (pkey===""? 'Nothing': pkey) + ' to ' + ckey);
+          field.value = ckey.replace(/^0+/, '');
           status = true;
         }
       }
