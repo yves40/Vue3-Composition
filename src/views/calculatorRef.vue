@@ -9,10 +9,15 @@
       <span class="result">{{result}}</span>
     </form>
     <div class="moduletitle">Modified {{modifications}} time(s)</div>
+    <div>
+      <DatadownEventsup v-model="message" v-model:draft="checker"/>
+    </div>    
   </div>
 </template>
 
 <script>
+
+import DatadownEventsup from "./DatadownEventsup";
 
 import { onMounted, onBeforeUnmount, ref, watch, computed } from "vue";
 import { useStore } from "vuex";
@@ -21,8 +26,15 @@ import { Router, useRouter } from "vue-router";
 export default {
   props: {
     msg: String,
-    preset1: String,
+    preset1: { 
+      type: String,
+      required: false,
+      default: ''
+    },
     preset2: String,
+  },
+  components: {
+    DatadownEventsup,
   },
   name: 'calculatorRef',
   setup(props, context) {
@@ -31,12 +43,14 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.08, Aug 12 2020 '
+    let Version = 'calculatorRef: 2.23, Aug 14 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);
     let result = computed( () => store.state.result );
     let modifications = computed( () => store.getters.getModificationsNumber);
+    let message = ref("Yves Isabelle");
+    let checker = ref(false);
 
     // Initial load.
     // Have a look at passed parameters if any
@@ -54,13 +68,15 @@ export default {
     // Test lifecycle handlers
     onBeforeUnmount(() =>  { console.log(Version + 'UnMounted');})
     onMounted(() =>  {console.log(Version + 'Mounted');})
+    
 
 
 //-----------------------------------------------------------------------
     // Track user actions
     //-----------------------------------------------------------------------
-    watch( [num1, num2], ([c1, c2], [p1, p2]) => {
-      console.log("**** " + c1 + " **** " + c2 + " **************************")
+    //watch( [num1, num2, message, checker], ([c1, c2], [p1, p2], [ m1, m2 ], [ck1, ck2]) => {
+    watch( [num1, num2, message, checker], ([c1, c2], [p1, p2], [m1, m2], [b1, b2]) => {
+      console.log("**** " + c1 + "/" + c2 + "/" + message.value + "/" + checker.value)
       let trackchange = check(num1, c1, p1);
       if(!trackchange) trackchange = check(num2, c2, p2)
       if(trackchange)
@@ -96,6 +112,8 @@ export default {
       modifications,
       Version,
       Header,
+      message,
+      checker
     }
   }
 }

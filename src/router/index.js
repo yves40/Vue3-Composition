@@ -5,6 +5,7 @@ import calculatorReactive from "../views/calculatorReactive"
 import calculatorComputed from "../views/calculatorComputed"
 import calculatorToRefs from "../views/calculatorToRefs"
 import about from "../views/About"
+import DatadownEventsup from "../views/DatadownEventsup"
 
 const routes = [
   { path: '/', name: 'Home',component: Home },
@@ -12,7 +13,8 @@ const routes = [
   { path: '/calcreactive', name: 'calcreactive', component: calculatorReactive, props: true},
   { path: '/calccomputed', name: 'calccomputed', component: calculatorComputed, props: true},
   { path: '/calctorefs', name: 'calctorefs', component: calculatorToRefs, props: true},
-  { path: '/about',name: 'about', component: about}
+  { path: '/about',name: 'about', component: about},
+  { path: '/ddeu',name: 'ddeu', component: DatadownEventsup}
 ]
 
 const router = createRouter({
