@@ -43,7 +43,7 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.23, Aug 14 2020 '
+    let Version = 'calculatorRef: 2.24, Aug 14 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);
@@ -75,7 +75,7 @@ export default {
     // Track user actions
     //-----------------------------------------------------------------------
     //watch( [num1, num2, message, checker], ([c1, c2], [p1, p2], [ m1, m2 ], [ck1, ck2]) => {
-    watch( [num1, num2, message, checker], ([c1, c2], [p1, p2], [m1, m2], [b1, b2]) => {
+    watch( [num1, num2, message, checker], ([c1, c2, m1, ck1], [p1, p2, m2, ck2]) => {
       console.log("**** " + c1 + "/" + c2 + "/" + message.value + "/" + checker.value)
       let trackchange = check(num1, c1, p1);
       if(!trackchange) trackchange = check(num2, c2, p2)
