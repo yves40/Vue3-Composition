@@ -14,7 +14,7 @@ font-weight: bold;
     font-weight: bold;
 }
 
-.moduletitle {  font-style: italic; font-size: small }
+.moduletitle {  font-style: italic; font-size: small; padding-top: 1em; padding-bottom: .5em; }
 
 .calc-form {
   margin-left: auto;
