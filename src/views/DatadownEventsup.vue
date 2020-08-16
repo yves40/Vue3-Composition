@@ -14,14 +14,17 @@ import { useModelWrapper } from "../wrappers/useModelWrapper";
 export default { 
   props: { 
     modelValue: String, 
-    draft: Boolean
+    payload: {
+      draft: Boolean,
+      minvalue: 0,
+    },
   },
   setup(props, { emit }) { 
-    const Version = "DatadownEventup 1.07: Aug 14 2020"
+    const Version = "DatadownEventup 1.09: Aug 16 2020"
     return { 
       Version, 
       message: useModelWrapper(props, emit, 'modelValue'), 
-      isDraft: useModelWrapper(props, emit, 'draft') 
+      isDraft: useModelWrapper(props, emit, 'payload') 
     }
   }
 }

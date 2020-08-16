@@ -10,7 +10,7 @@
     </form>
     <div class="moduletitle">Modified {{modifications}} time(s)</div>
     <div>
-      <DatadownEventsup v-model="message" v-model:draft="checker" />
+      <DatadownEventsup v-model="message" v-model:payload="datapayload.checker" />
     </div>    
   </div>
 </template>
@@ -43,14 +43,17 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.26, Aug 16 2020 '
+    let Version = 'calculatorRef: 2.30, Aug 16 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);
     let result = computed( () => store.state.result );
     let modifications = computed( () => store.getters.getModificationsNumber);
     let message = ref("Yves Isabelle");
-    let checker = ref(false);
+    let datapayload = {
+      checker: ref(false),
+      minvalue: 10,
+    }
 
     // Initial load.
     // Have a look at passed parameters if any
@@ -74,8 +77,8 @@ export default {
     //-----------------------------------------------------------------------
     // Track user actions
     //-----------------------------------------------------------------------
-    watch( [num1, num2, message, checker], ([c1, c2, m1, ck1], [p1, p2, m2, ck2]) => {
-      console.log("**** " + c1 + "/" + c2 + "/" + message.value + "/" + checker.value)
+    watch( [num1, num2, message, datapayload.checker], ([c1, c2, m1, ck1], [p1, p2, m2, ck2]) => {
+      console.log("**** " + c1 + "/" + c2 + "/" + message.value + "/" + datapayload.checker.value)
       let trackchange = check(num1, c1, p1);
       if(!trackchange) trackchange = check(num2, c2, p2)
       if(trackchange)
@@ -112,7 +115,7 @@ export default {
       Version,
       Header,
       message,
-      checker,
+      datapayload,
     }
   }
 }
