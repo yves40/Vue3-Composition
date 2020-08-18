@@ -43,7 +43,7 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.30, Aug 16 2020 '
+    let Version = 'calculatorRef: 2.31, Aug 16 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);
@@ -53,6 +53,7 @@ export default {
     let datapayload = {
       checker: ref(false),
       minvalue: 10,
+      maxvalue: 20,
     }
 
     // Initial load.

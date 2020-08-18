@@ -10,6 +10,7 @@
 
 import { computed } from 'vue'
 import { useModelWrapper } from "../wrappers/useModelWrapper";
+import { useModelTimeout } from "../wrappers/useModelTimeout";
 
 export default { 
   props: { 
@@ -17,14 +18,18 @@ export default {
     payload: {
       draft: Boolean,
       minvalue: 0,
+      maxvalue: 1000
     },
   },
   setup(props, { emit }) { 
-    const Version = "DatadownEventup 1.09: Aug 16 2020"
+    const Version = "DatadownEventup 1.14: Aug 17 2020"
+    const message = useModelWrapper(props, emit, 'modelValue');
+    const isDraft =  useModelWrapper(props, emit, 'payload');
+    useModelTimeout(message);   // Clear the field if modified and then untouched for 5 sec
     return { 
-      Version, 
-      message: useModelWrapper(props, emit, 'modelValue'), 
-      isDraft: useModelWrapper(props, emit, 'payload') 
+      Version,
+      message,
+      isDraft,
     }
   }
 }
