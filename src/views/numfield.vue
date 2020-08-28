@@ -22,15 +22,23 @@ export default {
   name: 'numfield',
   setup(props, {emit}) {
 
-    let Version = 'numfield: 1.30, Aug 28 2020 '
+    let Version = 'numfield: 1.32, Aug 28 2020 '
 
     console.log(JSON.stringify(props))
 
     const thenumber = modelNumberWrapper(props, emit, 'modelValue');
     const min = props.minvalue;
     const max = props.maxvalue;
-    let msg = props.message;
     let error = "";
+    let msg;
+
+    if(!isNaN(min)&&!isNaN(max)) {
+      msg = props.message + ' between ' + min + ' and ' + max;   
+    }
+    else{ 
+      if(!isNaN(min)) { msg = props.message + ' At least ' + min };
+      if(!isNaN(max)) { msg = props.message + ' At most ' + max };
+    }
 
 
     //-----------------------------------------------------------------------
