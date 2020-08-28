@@ -1,6 +1,5 @@
 <template>
   <div class="calculator">
-    <div class="moduletitle">{{Version}}</div>
     <form class="calc-form">
       {{msg}}
       <input type="text" class="field" v-model="thenumber" />
@@ -23,14 +22,15 @@ export default {
   name: 'numfield',
   setup(props, {emit}) {
 
-    let Version = 'numfield: 1.28, Aug 28 2020 '
+    let Version = 'numfield: 1.30, Aug 28 2020 '
 
     console.log(JSON.stringify(props))
 
     const thenumber = modelNumberWrapper(props, emit, 'modelValue');
     const min = props.minvalue;
     const max = props.maxvalue;
-    const msg = props.message;
+    let msg = props.message;
+    let error = "";
 
 
     //-----------------------------------------------------------------------

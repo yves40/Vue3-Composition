@@ -2,7 +2,9 @@
   <div class="calculator">
     <div class="moduletitle">{{Version}}</div>
     <form class="calc-form">
-        <numfield v-model="mini" minvalue="10" maxvalue="120" message="Age please:"/>
+        <numfield v-model="age" minvalue="10" maxvalue="120" message="Age please:"/>
+        <numfield v-model="size" minvalue="130" maxvalue="210" message="Size please:"/>
+        <numfield v-model="weight" minvalue="50" maxvalue="150" message="Your weight:"/>
     </form>
   </div>
 </template>
@@ -22,8 +24,10 @@ export default {
   name: 'Tester',
   setup(props, context) {
 
-    let Version = 'Tester: 1.10, Aug 28 2020 '
-    let mini = ref(55);
+    let Version = 'Tester: 1.14, Aug 28 2020 '
+    let age = ref(55);
+    let size = ref(175);
+    let weight = ref(100);
 
     // Test lifecycle handlers
     onBeforeUnmount(() =>  { console.log(Version + 'UnMounted');})
@@ -32,15 +36,17 @@ export default {
     //-----------------------------------------------------------------------
     // Track user actions
     //-----------------------------------------------------------------------
-    watch( [mini], ([n1], [p1]) => {
+    watch( [age], ([n1], [p1]) => {
       console.log("**** " + n1 + "/" + p1 )
     })
 
     // Utilities
-    function getVersion() { return  Version;}
+    function getVersion() { return  Version; }
 
     return { 
-      mini,
+      age,
+      size,
+      weight,
       Version,
     }
   }
