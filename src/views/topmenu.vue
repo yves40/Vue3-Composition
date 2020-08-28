@@ -11,6 +11,7 @@
       <router-link :to="{name: 'calccomputed', params: { preset1: 1, preset2: 98 }}">Calculator Computed</router-link><br>
       <router-link :to="{name: 'calctorefs',   params: { preset1: 99, preset2: 99 }}">Calculator ToRefs</router-link><br>
       <router-link :to="{name: 'ddeu' }">Data Down Events up</router-link><br>
+      <router-link :to="{name: 'Tester', params: { maxvalue: 99, minvalue: 1 } }">Test numeric field</router-link><br>
   </div>
 </template>
 
@@ -18,7 +19,7 @@
 
 export default {
   setup(props, context) {
-    const Version = 'topmenu 1.03: Aug 14 2020'
+    const Version = 'topmenu 1.06: Aug 28 2020'
     return {
       Version
     }

@@ -2,7 +2,8 @@
   <div class="calculator">
     <div class="moduletitle">{{Version}}</div>
     <form class="calc-form">
-      <input type="text" class="field" v-model="thefield" maxlength="2"/>
+      {{msg}}
+      <input type="text" class="field" v-model="thenumber" />
     </form>
   </div>
 </template>
@@ -10,27 +11,33 @@
 <script>
 
 import { onMounted, onBeforeUnmount, ref, watch } from "vue";
+import { modelNumberWrapper } from "../wrappers/modelNumberWrapper";
 
 export default {
   props: {
-    initialvalue: String,
+    modelValue: Number,
+    maxvalue: String,
+    minvalue: String,
+    message: String
   },
-  emits: [
-    "One", "Two", "Three", "Triggered"
-  ],
   name: 'numfield',
-  setup(props, context) {
+  setup(props, {emit}) {
 
-    let Version = 'numfield: 1.07, Aug 12 2020 '
-    let thefield = ref(0);
+    let Version = 'numfield: 1.28, Aug 28 2020 '
 
-    context.emit('Triggered');
+    console.log(JSON.stringify(props))
+
+    const thenumber = modelNumberWrapper(props, emit, 'modelValue');
+    const min = props.minvalue;
+    const max = props.maxvalue;
+    const msg = props.message;
+
+
     //-----------------------------------------------------------------------
     // Track user actions
     //-----------------------------------------------------------------------
-    watch( [thefield], ([c1], [p1]) => {
-      console.log("**** " + c1 +  " **************************")
-      let trackchange = check(thefield, c1, p1);
+    watch( [thenumber], ([ckey], [pkey]) => {
+      let trackchange = check(thenumber, ckey, pkey);
     })
 
     // Utilities
@@ -47,7 +54,7 @@ export default {
         }
         else {
           console.log('watch handler: change from: ' + (pkey===""? 'Nothing': pkey) + ' to ' + ckey);
-          if(ckey !== "0") field.value = ckey.replace(/^0+/, '');
+          if(ckey !== "0") field.value = parseInt(ckey);
           status = true;
         }
       }
@@ -55,7 +62,8 @@ export default {
     }
 
     return { 
-      thefield,
+      thenumber,
+      msg,
       Version,
     }
   }
