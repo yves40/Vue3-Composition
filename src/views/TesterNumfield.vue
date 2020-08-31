@@ -22,10 +22,10 @@ export default {
   components: {
     numfield,
   },
-  name: 'Tester',
+  name: 'TesterNumfield',
   setup(props, context) {
 
-    let Version = 'Tester: 1.16, Aug 31 2020 '
+    let Version = 'TesterNumfield: 1.17, Aug 31 2020 '
     let age = ref(55);
     let size = ref(175);
     const weight = ref(100);

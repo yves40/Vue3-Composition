@@ -21,6 +21,7 @@ font-weight: bold;
   margin-right: auto;
   width: 16em;
   padding: 0.4em;
+  border: 1px solid;
 }
 .field {
   width: 3rem;

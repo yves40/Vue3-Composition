@@ -6,7 +6,7 @@ import calculatorComputed from "../views/calculatorComputed"
 import calculatorToRefs from "../views/calculatorToRefs"
 import about from "../views/About"
 import DatadownEventsup from "../views/DatadownEventsup"
-import Tester from "../views/Tester"
+import TesterNumfield from "../views/TesterNumfield"
 
 const routes = [
   { path: '/', name: 'Home',component: Home },
@@ -16,7 +16,7 @@ const routes = [
   { path: '/calctorefs', name: 'calctorefs', component: calculatorToRefs, props: true},
   { path: '/about',name: 'about', component: about},
   { path: '/ddeu',name: 'ddeu', component: DatadownEventsup},
-  { path: '/Tester',name: 'Tester', component: Tester}
+  { path: '/TesterNumfield',name: 'TesterNumfield', component: TesterNumfield}
 ]
 
 const router = createRouter({
