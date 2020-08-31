@@ -1,10 +1,8 @@
 <template>
-  <div class="calculator">
-    <form class="calc-form">
-      {{msg}}
-      <input type="text" class="field" v-model="thenumber" />
-    </form>
-  </div>
+  <div class="localgrid">
+    {{msg}} 
+    <input type="text" class="field" v-model="thenumber" />
+</div>
 </template>
 
 <script>
@@ -22,7 +20,7 @@ export default {
   name: 'numfield',
   setup(props, {emit}) {
 
-    let Version = 'numfield: 1.32, Aug 28 2020 '
+    let Version = 'numfield: 1.36, Aug 31 2020 '
 
     console.log(JSON.stringify(props))
 
@@ -32,12 +30,13 @@ export default {
     let error = "";
     let msg;
 
+    msg = props.message;
     if(!isNaN(min)&&!isNaN(max)) {
-      msg = props.message + ' between ' + min + ' and ' + max;   
+      msg = props.message + ' ' + min + ' to ' + max;   
     }
     else{ 
-      if(!isNaN(min)) { msg = props.message + ' At least ' + min };
-      if(!isNaN(max)) { msg = props.message + ' At most ' + max };
+      if(!isNaN(min)) { msg = props.message + ' Min:' + min };
+      if(!isNaN(max)) { msg = props.message + ' Max:' + max };
     }
 
 
@@ -79,3 +78,15 @@ export default {
 
 </script>
 
+<style scoped>
+
+  .localgrid {
+    display:grid;
+    grid-gap: 20px; 
+    grid-template-columns: 80% 20%;
+    margin: auto;
+    text-align: right;
+    align-items: center;
+  }
+
+</style>
