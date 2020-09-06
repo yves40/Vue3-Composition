@@ -1,6 +1,6 @@
 <template>
     <div class="moduletitle">{{Version}}</div>
-    <div class="calc-form">
+    <div>
       <form>
           <numfield v-model="age" minvalue="10" maxvalue="120" message="Age please:"/>
           <numfield v-model="size" maxvalue="210" message="Size please:"/>

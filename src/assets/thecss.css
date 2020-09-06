@@ -19,7 +19,7 @@ font-weight: bold;
 .calc-form {
   margin-left: auto;
   margin-right: auto;
-  width: 16em;
+  width: 20rem;
   padding: 0.4em;
   border: 1px solid;
 }
@@ -27,6 +27,15 @@ font-weight: bold;
   width: 3rem;
   margin: 2px;
   text-align: center;
+}
+
+.localgrid {
+  display:grid;
+  grid-gap: 20px; 
+  grid-template-columns: 10% 60% 20% 10%;
+  text-align: right;
+  align-items: center;
+  border: 1px solid;
 }
 
 #app {

@@ -80,13 +80,4 @@ export default {
 
 <style scoped>
 
-  .localgrid {
-    display:grid;
-    grid-gap: 20px; 
-    grid-template-columns: 80% 20%;
-    margin: auto;
-    text-align: right;
-    align-items: center;
-  }
-
 </style>
