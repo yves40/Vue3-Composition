@@ -2,7 +2,10 @@
   <div class="grid2-60 viewframe">
     <span>{{msg}}</span>
     <input type="text" class="field" v-model="thenumber" />
-</div>
+  </div>
+  <div>
+    {{ error }}
+  </div>
 </template>
 
 <script>
@@ -20,14 +23,14 @@ export default {
   name: 'numfield',
   setup(props, {emit}) {
 
-    let Version = 'numfield: 1.38, Sep 14 2020 '
+    let Version = 'numfield: 1.41, Sep 14 2020 '
 
     console.log(JSON.stringify(props))
 
     const thenumber = modelNumberWrapper(props, emit, 'modelValue');
     const min = props.minvalue;
     const max = props.maxvalue;
-    let error = "";
+    let error = "None";
     let msg;
 
     msg = props.message;
@@ -71,6 +74,7 @@ export default {
     return { 
       thenumber,
       msg,
+      error,
       Version,
     }
   }
