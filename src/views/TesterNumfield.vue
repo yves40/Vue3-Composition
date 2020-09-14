@@ -5,7 +5,7 @@
       <numfield v-model="size" maxvalue="210" message="Size please:"/>
       <numfield v-model="weight" minvalue="50" message="Your weight:"/>
       <numfield v-model="freezone" message="Free number"/>
-      <div class="grid2-80 viewframe">
+      <div class="grid2-60 viewframe">
         <span>Result</span>
         <span>{{ thesum }}</span>
       </div>     
