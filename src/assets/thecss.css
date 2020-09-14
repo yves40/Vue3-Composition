@@ -44,6 +44,7 @@ font-weight: bold;
   grid-template-columns: 60% 20%;
   margin: auto;
   max-width: 60%;
+  align-items: center;
 }
 
 .grid3 {
