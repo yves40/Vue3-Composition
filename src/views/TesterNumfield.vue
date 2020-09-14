@@ -1,13 +1,16 @@
 <template>
     <div class="moduletitle">{{Version}}</div>
     <div>
-      <form>
-          <numfield v-model="age" minvalue="10" maxvalue="120" message="Age please:"/>
-          <numfield v-model="size" maxvalue="210" message="Size please:"/>
-          <numfield v-model="weight" minvalue="50" message="Your weight:"/>
-          <numfield v-model="freezone" message="Free number"/>        
-      </form>
+      <numfield v-model="age" minvalue="10" maxvalue="120" message="Age please:"/>
+      <numfield v-model="size" maxvalue="210" message="Size please:"/>
+      <numfield v-model="weight" minvalue="50" message="Your weight:"/>
+      <numfield v-model="freezone" message="Free number"/>
+      <div class="grid2-80 viewframe">
+        <span>Result</span>
+        <span>{{ thesum }}</span>
+      </div>     
     </div>
+
 </template>
 
 <script>
@@ -25,11 +28,12 @@ export default {
   name: 'TesterNumfield',
   setup(props, context) {
 
-    let Version = 'TesterNumfield: 1.17, Aug 31 2020 '
+    let Version = 'TesterNumfield: 1.25, Sep 14 2020 '
     let age = ref(55);
     let size = ref(175);
     const weight = ref(100);
     let freezone = ref(100);
+    let thesum = computed( () => age.value+size.value+weight.value+freezone.value)
 
     // Test lifecycle handlers
     onBeforeUnmount(() =>  { console.log(Version + 'UnMounted');})
@@ -50,10 +54,36 @@ export default {
       size,
       weight,
       freezone,
+      thesum,
       Version,
     }
   }
 }
 
 </script>
+
+<style scoped>
+#outer-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  grid-auto-flow: column;
+}
+#outer-grid > div {
+  background-color: orangered;
+  color: white;
+  font-size: 4vw;
+  padding: 8px;
+}
+#inner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+#inner-grid > div {
+  background: salmon;
+  padding: 8px;
+}
+</style>
 

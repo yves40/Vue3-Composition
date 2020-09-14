@@ -1,6 +1,6 @@
 <template>
-  <div class="localgrid">
-    {{msg}} 
+  <div class="grid2-60 viewframe">
+    <span>{{msg}}</span>
     <input type="text" class="field" v-model="thenumber" />
 </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   name: 'numfield',
   setup(props, {emit}) {
 
-    let Version = 'numfield: 1.36, Aug 31 2020 '
+    let Version = 'numfield: 1.38, Sep 14 2020 '
 
     console.log(JSON.stringify(props))
 

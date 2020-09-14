@@ -29,15 +29,76 @@ font-weight: bold;
   text-align: center;
 }
 
-.localgrid {
+.grid2-80 {
   display:grid;
-  grid-gap: 20px; 
-  grid-template-columns: 10% 60% 20% 10%;
-  text-align: right;
+  grid-gap: 10px; 
+  grid-template-columns: 60% 20%;
+  margin: auto;
+  max-width: 80%;
   align-items: center;
-  border: 1px solid;
 }
 
+.grid2-60 {
+  display:grid;
+  grid-gap: 10px; 
+  grid-template-columns: 60% 20%;
+  margin: auto;
+  max-width: 60%;
+}
+
+.grid3 {
+  display:grid;
+  grid-gap: 10px; 
+  grid-template-columns: 20% 60% 20%;
+  margin: auto;
+  max-width: 80%;
+}
+
+.grid4 {
+  display:grid;
+  grid-gap: 20px; 
+  grid-template-columns: 20% 40% 20% 20%;
+  text-align: right;
+  align-items: center;
+  max-width: 80%;
+}
+
+.viewbackground {background-color: lightgray;}
+.viewframe { border: 1px solid lightgray; border-radius: 4px};
+
+.running {
+  background-color: #337ab7;
+  color: white;
+  text-align: left;
+  vertical-align: middle;
+  border: 1px;
+  border-radius: 4px;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 20px 0px 20px;
+  height: 120px;
+  overflow: auto;
+}
+
+.logging {
+  background-color: #337ab7;
+  color: white;
+  text-align: left;
+  vertical-align: middle;
+  border: 1px;
+  border-radius: 4px;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 20px 0px 20px;
+  height: 300px;
+  overflow: auto;
+}
+
+.techinfo {
+  text-align: center;
+  color: darkblue;
+  vertical-align: middle;
+  font-size: 14px;
+  padding-left: 20px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
