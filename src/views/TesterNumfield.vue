@@ -8,9 +8,11 @@
       <div class="grid2-60 viewframe">
         <span>Result</span>
         <span>{{ thesum }}</span>
-      </div>     
+      </div>
+      <div class="moduletitle">
+        <button class="btn btn-outline-primary">Validate</button>
+      </div>
     </div>
-
 </template>
 
 <script>
@@ -28,7 +30,7 @@ export default {
   name: 'TesterNumfield',
   setup(props, context) {
 
-    let Version = 'TesterNumfield: 1.25, Sep 14 2020 '
+    let Version = 'TesterNumfield: 1.26, Sep 21 2020 '
     let age = ref(55);
     let size = ref(175);
     const weight = ref(100);

@@ -7,10 +7,11 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "bootstrap": "^5.0.0-alpha1",
+    "bootstrap": "^4.5.2",
     "bootstrap-icons": "^1.0.0",
-    "bootstrap-vue": "^2.17.0",
+    "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
+    "popper.js": "^1.16.1",
     "vue": "^3.0.0-rc.4",
     "vue-router": "^4.0.0-beta.4",
     "vuex": "^4.0.0-beta.4"

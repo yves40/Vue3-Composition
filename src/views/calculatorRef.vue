@@ -21,7 +21,7 @@ import DatadownEventsup from "./DatadownEventsup";
 
 import { onMounted, onBeforeUnmount, ref, watch, computed } from "vue";
 import { useStore } from "vuex";
-import { Router, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
 export default {
   props: {
@@ -43,7 +43,7 @@ export default {
     const router = useRouter();
     router.getRoutes().forEach( rt => console.info(rt.path));
     
-    let Version = 'calculatorRef: 2.31, Aug 16 2020 '
+    let Version = 'calculatorRef: 2.32, Sep 20 2020 '
     let Header = props.msg;
     let num1 = ref(0);
     let num2 = ref(0);

@@ -3,9 +3,6 @@
     <span>{{msg}}</span>
     <input type="text" class="field" v-model="thenumber" />
   </div>
-  <div>
-    {{ error }}
-  </div>
 </template>
 
 <script>
